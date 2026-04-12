@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import MobileMenu from "./MobileMenu";
+
+const NAV_ITEMS = ["Overview", "Skills", "Experience", "Projects", "Contract"];
 
 export default function CyberHeader() {
   const [lang, setLang] = useState("EN");
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -69,7 +73,7 @@ export default function CyberHeader() {
       `}</style>
 
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center px-8 py-4">
-        <div className="flex items-center anim-glitch-in">
+        <div className="items-center anim-glitch-in hidden sm:flex">
 
           {/* ── Left nav panel ── */}
           <div className="clip-left nav-left-fx relative flex items-center gap-9 px-10 py-2.5 bg-[rgba(0,20,20,0.85)] border border-[rgba(0,210,180,0.15)] backdrop-blur-md">
@@ -101,9 +105,9 @@ export default function CyberHeader() {
             <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-[#00d4b8] shadow-[0_0_8px_#00d4b8]" />
             <span className="absolute bottom-0 right-4 w-2.5 h-2.5 border-b-2 border-r-2 border-[#00d4b8] shadow-[0_0_8px_#00d4b8]" />
 
-            <button className="font-orbitron text-[11px] font-bold tracking-[0.18em] uppercase whitespace-nowrap bg-transparent border-none px-6 py-3 cursor-pointer text-[#e8fffe] transition-colors duration-200 hover:text-[#00d4b8] hover:[text-shadow:0_0_12px_rgba(0,212,184,0.6)]">
-              Connect Wallet
-            </button>
+            <span className="font-orbitron text-[11px] font-bold tracking-[0.18em] uppercase whitespace-nowrap bg-transparent border-none px-6 py-3 text-[#e8fffe] transition-colors duration-200 hover:text-[#00d4b8] hover:[text-shadow:0_0_12px_rgba(0,212,184,0.6)]">
+              thai bao
+            </span>
 
             {/* Wallet icon */}
             <div className="wallet-wrap flex items-center justify-center px-3 py-2.5 border-l border-[rgba(0,210,180,0.3)]">
@@ -123,9 +127,37 @@ export default function CyberHeader() {
             {/* caret */}
             <span className="w-0 h-0 border-x-4 border-x-transparent border-t-[5px] border-t-current opacity-70 mt-0.5" />
           </div>
-
         </div>
+
+           {/* ── MOBILE TOP BAR ── */}
+          <div className="flex sm:hidden w-full items-center justify-between">
+            {/* Logo */}
+            <span className="font-orbitron text-[13px] font-bold tracking-[0.18em] uppercase text-[#00d4b8] [text-shadow:0_0_12px_rgba(0,212,184,0.4)]">
+              Thai Bao
+            </span>
+  
+            {/* Hamburger */}
+            <button
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label="Toggle menu"
+              className="relative flex flex-col justify-center items-center gap-1.25 px-2 cursor-pointer bg-[rgba(0,20,20,0.9)] border border-[rgba(0,210,180,0.3)] rounded hover:border-[#00d4b8] hover:text-[#00d4b8] transition-all duration-200"
+            >
+              {/* <span className={`hbar ${mobileOpen ? "hbar-top-open" : ""}`} />
+              <span className={`hbar ${mobileOpen ? "hbar-mid-open" : ""}`} />
+              <span className={`hbar ${mobileOpen ? "hbar-bot-open" : ""}`} /> */}
+              Menu
+            </button>
+          </div>
+    
       </header>
+
+          <MobileMenu
+          items={NAV_ITEMS}
+          lang={lang}
+          mobileOpen={mobileOpen}
+          setLang={setLang}
+          setMobileOpen={setMobileOpen}
+        />
     </>
   );
 }
