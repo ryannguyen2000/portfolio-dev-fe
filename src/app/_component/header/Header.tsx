@@ -140,7 +140,7 @@ export default function CyberHeader() {
             <button
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
-              className="relative flex flex-col justify-center items-center gap-1.25 px-2 cursor-pointer bg-[rgba(0,20,20,0.9)] border border-[rgba(0,210,180,0.3)] rounded hover:border-[#00d4b8] hover:text-[#00d4b8] transition-all duration-200"
+              className="relative flex flex-col justify-center items-center gap-1.25 px-2 cursor-pointer bg-[rgba(0,20,20,0.9)] border border-[rgba(0,210,180,0.3)] rounded hover:border-[#00d4b8] hover:text-[#00d4b8] transition-all duration-200 text-white"
             >
               {/* <span className={`hbar ${mobileOpen ? "hbar-top-open" : ""}`} />
               <span className={`hbar ${mobileOpen ? "hbar-mid-open" : ""}`} />
