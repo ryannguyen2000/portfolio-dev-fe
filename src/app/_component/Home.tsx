@@ -63,7 +63,7 @@ export default function HomePage() {
         {/* ── HERO ── */}
         <section className="mb-28" id="overview">
           <p className="font-mono text-[11px] tracking-[0.2em] text-[#00d4b8] uppercase mb-6">
-            Full-stack Developer · Ho Chi Minh City, VN
+            Full-stack Developer · Can Tho City, VN
           </p>
 
           <h1 className="font-syne text-[clamp(48px,8vw,96px)] font-extrabold leading-none tracking-tight mb-6">
